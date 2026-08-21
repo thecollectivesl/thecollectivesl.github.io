@@ -10,6 +10,13 @@
             font-style: normal;
         }
 
+        @font-face {
+            font-family: 'Michroma';
+            src: url('Michroma.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         body {
             background-color: #000000;
             margin: 0;
@@ -51,7 +58,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
+            gap: 8px;
         }
 
         #playBtn {
@@ -74,6 +81,14 @@
             color: black;
             -webkit-text-stroke: 0;
         }
+
+        .note {
+            font-family: 'Michroma', sans-serif;
+            font-size: 11px;
+            color: #ffffff;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
     </style>
 </head>
 <body>
@@ -85,6 +100,7 @@
         <a id="playBtn" href="http://uuan-treves.go-stream.live:8973/stream" target="_blank">
             Listen Now
         </a>
+        <div class="note">opens in new browser</div>
     </div>
 
 </body>
