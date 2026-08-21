@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clubs | The Collective</title>
+    <style>
+        @font-face {
+            font-family: 'AlienResurrection';
+            src: url('AlienResurrection.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Michroma';
+            src: url('Michroma.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Michroma', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* FIXED BACKGROUND */
+        .fixed-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('Discord_Logo.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            z-index: -1;
+        }
+
+        .fixed-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+        }
+
+        /* HEADER */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            position: relative;
+            z-index: 100;
+        }
+
+        .logo-text {
+            font-family: 'AlienResurrection', sans-serif;
+            font-size: 28px;
+            letter-spacing: 3px;
+            color: #ffffff;
+            -webkit-text-stroke: 0.8px #00e5ff;
+        }
+
+        .logo-sub {
+            font-family: 'AlienResurrection', sans-serif;
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: #cccccc;
+            margin-top: 4px;
+        }
+
+        nav {
+            display: flex;
+            gap: 22px;
+            align-items: center;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff3c3c;
+        }
+
+        nav a.active {
+            color: #ff3c3c;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        /* MAIN CONTENT */
+        .content {
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 30px 100px;
+            text-align: center;
+        }
+
+        .content h1 {
+            font-family: 'AlienResurrection', sans-serif;
+            font-size: 52px;
+            color: #e0e0e0;
+            -webkit-text-stroke: 1.2px #00e5ff;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+        }
+
+        .intro {
+            font-family: 'Michroma', sans-serif;
+            font-size: 15px;
+            line-height: 1.8;
+            color: #dddddd;
+            margin-bottom: 18px;
+        }
+
+        .rules {
+            font-family: 'Michroma', sans-serif;
+            font-size: 14px;
+            line-height: 1.7;
+            color: #cccccc;
+            margin: 40px 0 60px;
+            padding: 20px;
+            border-left: 3px solid #00e5ff;
+            text-align: left;
+        }
+
+        .club {
+            margin-bottom: 55px;
+            text-align: left;
+        }
+
+        .club h2 {
+            font-family: 'AlienResurrection', sans-serif;
+            font-size: 28px;
+            color: #ffffff;
+            -webkit-text-stroke: 0.7px #00e5ff;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .club p {
+            font-family: 'Michroma', sans-serif;
+            font-size: 14px;
+            line-height: 1.7;
+            color: #cccccc;
+            margin-bottom: 15px;
+        }
+
+        .club a {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 10px 24px;
+            border: 1.5px solid #00e5ff;
+            color: #ffffff;
+            text-decoration: none;
+            font-family: 'Michroma', sans-serif;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .club a:hover {
+            background-color: #00e5ff;
+            color: #000000;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 12px;
+            color: #888888;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 10;
+        }
+
+        @media (max-width: 900px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+            }
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            .content h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="fixed-bg"></div>
+
+    <header>
+        <div>
+            <div class="logo-text">THE COLLECTIVE</div>
+            <div class="logo-sub">... where music has no rules</div>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="clubs.html" class="active">Clubs</a>
+            <a href="#">Special Events</a>
+            <a href="#">Calendar</a>
+            <a href="#">Rentals</a>
+            <a href="#">Games</a>
+            <a href="#">DJ's</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <div class="content">
+        <h1>The Clubs</h1>
+
+        <p class="intro">
+            A world of its own, a place where music and self-expression reign supreme.
+        </p>
+        <p class="intro">
+            There are three main clubs, and a few smaller ones, all with their own unique vibes.
+        </p>
+        <p class="intro">
+            Best of all, EVERYONE is welcome! At the Collective we're all about that 'come as you are' life, no judgements here. Each club is a unique gem, a world of its own.
+        </p>
+
+        <div class="rules">
+            There are only two rules. First, leave the drama at the door. We're all about keeping it positive and fun. And second, no child avatars, please. This is a grown-up playground, and we want to keep it that way.
+        </div>
+
+        <!-- THE PAD -->
+        <div class="club">
+            <h2>The Pad</h2>
+            <p>
+                This place is like a futuristic dream. A huge dance area, special effects galore, and music that will keep you moving all night long. It's the perfect place to let loose and get a little wild.
+            </p>
+            <a href="http://maps.secondlife.com/secondlife/The%20Uuan%20Collective/127/187/1963" target="_blank">Teleport to The Pad</a>
+        </div>
+
+        <!-- THE PYRAMID -->
+        <div class="club">
+            <h2>The Pyramid</h2>
+            <p>
+                A truly special place. A gift from some friendly aliens, who wanted to share in our love of music. They've left us a pyramid, where we can celebrate the gift of music, and they can learn from us about love and kindness. A truly magical place.
+            </p>
+            <a href="http://maps.secondlife.com/secondlife/The%20Epitome/118/9/3980" target="_blank">Teleport to The Pyramid</a>
+        </div>
+
+        <!-- THE DOCK -->
+        <div class="club">
+            <h2>The Dock</h2>
+            <p>
+                Another unique space with its own atmosphere and vibe.
+            </p>
+            <a href="http://maps.secondlife.com/secondlife/The%20Epitome/64/72/23" target="_blank">Teleport to The Dock</a>
+        </div>
+
+        <!-- ONSEN -->
+        <div class="club">
+            <h2>= Onsen =</h2>
+            <p>
+                A special smaller venue with its own unique energy.
+            </p>
+            <a href="http://maps.secondlife.com/secondlife/The%20Uuan%20Collective/83/168/22" target="_blank">Teleport to Onsen</a>
+        </div>
+
+    </div>
+
+    <footer>
+        © The Collective — where music has no rules
+    </footer>
+
+</body>
+</html>
