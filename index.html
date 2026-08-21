@@ -33,6 +33,32 @@
             overflow-x: hidden;
         }
 
+        /* ===== FIXED BACKGROUND ===== */
+        .fixed-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('Discord_Logo.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            z-index: -1;
+        }
+
+        /* Dark overlay so text stays readable */
+        .fixed-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.45);
+        }
+
         /* ===== HEADER ===== */
         header {
             display: flex;
@@ -43,17 +69,15 @@
             z-index: 100;
         }
 
-        .logo {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo img {
-            height: 55px;
-            width: auto;
-        }
-
         .logo-text {
+            font-family: 'AlienResurrection', sans-serif;
+            font-size: 28px;
+            letter-spacing: 3px;
+            color: #ffffff;
+            -webkit-text-stroke: 0.8px #00e5ff;
+        }
+
+        .logo-sub {
             font-family: 'AlienResurrection', sans-serif;
             font-size: 11px;
             letter-spacing: 2px;
@@ -88,21 +112,17 @@
         /* ===== HERO SECTION ===== */
         .hero {
             position: relative;
-            height: 85vh;
+            height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: radial-gradient(ellipse at center, #111111 0%, #000000 70%);
-            overflow: hidden;
+            padding: 0 20px;
         }
 
         .hero-content {
-            position: relative;
-            z-index: 10;
             max-width: 1000px;
-            padding: 0 20px;
         }
 
         .hero h1 {
@@ -112,7 +132,7 @@
             line-height: 1.1;
             color: #e0e0e0;
             -webkit-text-stroke: 1.5px #00e5ff;
-            text-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+            text-shadow: 0 0 25px rgba(0, 229, 255, 0.5);
             letter-spacing: 4px;
             margin-bottom: 15px;
         }
@@ -153,10 +173,12 @@
 
         /* ===== ABOUT SECTION ===== */
         .about {
-            padding: 80px 40px;
+            padding: 100px 40px;
             text-align: center;
             max-width: 900px;
             margin: 0 auto;
+            position: relative;
+            z-index: 10;
         }
 
         .about h2 {
@@ -172,7 +194,7 @@
             font-family: 'Michroma', sans-serif;
             font-size: 15px;
             line-height: 1.8;
-            color: #cccccc;
+            color: #dddddd;
             margin-bottom: 20px;
         }
 
@@ -180,10 +202,12 @@
         footer {
             text-align: center;
             padding: 40px 20px;
-            border-top: 1px solid #1a1a1a;
+            border-top: 1px solid rgba(255,255,255,0.1);
             font-size: 12px;
-            color: #666666;
+            color: #888888;
             letter-spacing: 1px;
+            position: relative;
+            z-index: 10;
         }
 
         /* Responsive */
@@ -217,11 +241,14 @@
 </head>
 <body>
 
+    <!-- FIXED BACKGROUND IMAGE -->
+    <div class="fixed-bg"></div>
+
     <!-- HEADER -->
     <header>
-        <div class="logo">
-            <img src="Discord_Logo.png" alt="The Collective">
-            <div class="logo-text">... where music has no rules</div>
+        <div>
+            <div class="logo-text">THE COLLECTIVE</div>
+            <div class="logo-sub">... where music has no rules</div>
         </div>
         <nav>
             <a href="/" class="active">Home</a>
