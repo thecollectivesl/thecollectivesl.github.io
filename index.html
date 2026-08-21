@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>The Collective</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Collective | Where music has no rules</title>
     <style>
         @font-face {
             font-family: 'AlienResurrection';
@@ -17,91 +19,251 @@
             font-style: normal;
         }
 
-        body {
-            background-color: #000000;
+        * {
             margin: 0;
             padding: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            padding-top: 80px;
-            font-family: 'AlienResurrection', sans-serif;
-            color: white;
+            box-sizing: border-box;
         }
 
-        h1 {
-            font-family: 'AlienResurrection', sans-serif;
-            font-size: 52px;
-            font-weight: normal;
+        body {
+            background-color: #000000;
             color: #ffffff;
-            text-align: center;
-            -webkit-text-stroke: 1px #00ff00;
-            letter-spacing: 3px;
-            word-spacing: 18px;
-            margin: 0 0 20px 0;
-        }
-
-        .subtitle {
-            font-family: 'AlienResurrection', sans-serif;
-            font-size: 24px;
-            color: #ffffff;
-            text-align: center;
-            -webkit-text-stroke: 0.8px #00ff00;
-            letter-spacing: 2px;
-            word-spacing: 14px;
-            margin: 0 0 50px 0;
-        }
-
-        .player {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
-
-        #playBtn {
-            background-color: transparent;
-            border: 2px solid #00ff00;
-            color: white;
-            font-family: 'AlienResurrection', sans-serif;
-            font-size: 20px;
-            padding: 12px 40px;
-            cursor: pointer;
-            letter-spacing: 2px;
-            word-spacing: 12px;
-            text-decoration: none;
-            transition: all 0.3s;
-            -webkit-text-stroke: 0.5px #00ff00;
-        }
-
-        #playBtn:hover {
-            background-color: #00ff00;
-            color: black;
-            -webkit-text-stroke: 0;
-        }
-
-        .note {
             font-family: 'Michroma', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            position: relative;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo img {
+            height: 55px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-family: 'AlienResurrection', sans-serif;
             font-size: 11px;
-            color: #ffffff;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            color: #cccccc;
             margin-top: 4px;
+        }
+
+        nav {
+            display: flex;
+            gap: 22px;
+            align-items: center;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff3c3c;
+        }
+
+        nav a.active {
+            color: #ff3c3c;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            position: relative;
+            height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(ellipse at center, #111111 0%, #000000 70%);
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 1000px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-family: 'AlienResurrection', sans-serif;
+            font-size: 68px;
+            font-weight: normal;
+            line-height: 1.1;
+            color: #e0e0e0;
+            -webkit-text-stroke: 1.5px #00e5ff;
+            text-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
+
+        .hero .tagline {
+            font-family: 'AlienResurrection', sans-serif;
+            font-size: 22px;
+            color: #cccccc;
+            -webkit-text-stroke: 0.6px #00e5ff;
+            letter-spacing: 2px;
+            margin-bottom: 45px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border: 1.5px solid #00e5ff;
+            color: #ffffff;
+            text-decoration: none;
+            font-family: 'Michroma', sans-serif;
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .btn:hover {
+            background-color: #00e5ff;
+            color: #000000;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about {
+            padding: 80px 40px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about h2 {
+            font-family: 'AlienResurrection', sans-serif;
+            font-size: 42px;
+            color: #e0e0e0;
+            -webkit-text-stroke: 1px #00e5ff;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+        }
+
+        .about p {
+            font-family: 'Michroma', sans-serif;
+            font-size: 15px;
+            line-height: 1.8;
+            color: #cccccc;
+            margin-bottom: 20px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid #1a1a1a;
+            font-size: 12px;
+            color: #666666;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero .tagline {
+                font-size: 16px;
+            }
+
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
 <body>
 
-    <h1>Welcome To The Collective</h1>
-    <p class="subtitle">under construction</p>
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <img src="Discord_Logo.png" alt="The Collective">
+            <div class="logo-text">... where music has no rules</div>
+        </div>
+        <nav>
+            <a href="/" class="active">Home</a>
+            <a href="#">Clubs</a>
+            <a href="#">Special Events</a>
+            <a href="#">Calendar</a>
+            <a href="#">Rentals</a>
+            <a href="#">Games</a>
+            <a href="#">DJ's</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
 
-    <div class="player">
-        <a id="playBtn" href="http://uuan-treves.go-stream.live:8973/stream" target="_blank">
-            Listen Now
-        </a>
-        <div class="note">opens in new browser</div>
-    </div>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>WELCOME TO THE<br>COLLECTIVE</h1>
+            <p class="tagline">Where music has no rules in Second Life!</p>
+            
+            <div class="buttons">
+                <a href="http://maps.secondlife.com/secondlife/Plexus/130/134/22" target="_blank" class="btn">Visit In Second Life</a>
+                <a href="https://soundcloud.com/uuan-treves" target="_blank" class="btn">Soundcloud</a>
+                <a href="http://uuan-treves.go-stream.live:8973/stream" target="_blank" class="btn">Listen Live</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about">
+        <h2>The Collective</h2>
+        <p>
+            The Collective is a community that welcomes everyone. Spreading love and sharing creativity is the main focus of our sims. We welcome everyone and believe that there is no room for drama, hate, discrimination. We take pride in our community with its strong beliefs in living in harmony.
+        </p>
+        <p>
+            Whether you are a visitor or a resident, you are always welcome at The Collective.
+        </p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © The Collective — where music has no rules
+    </footer>
 
 </body>
 </html>
