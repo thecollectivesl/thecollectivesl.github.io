@@ -53,6 +53,7 @@
             padding: 12px 40px;
             cursor: pointer;
             letter-spacing: 2px;
+            text-decoration: none;
             transition: all 0.3s;
             -webkit-text-stroke: 0.5px #00ff00;
         }
@@ -62,18 +63,6 @@
             color: black;
             -webkit-text-stroke: 0;
         }
-
-        .volume-control {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-size: 16px;
-        }
-
-        input[type="range"] {
-            width: 180px;
-            accent-color: #00ff00;
-        }
     </style>
 </head>
 <body>
@@ -82,41 +71,10 @@
     <p class="subtitle">under construction</p>
 
     <div class="player">
-        <button id="playBtn">Listen Now</button>
-
-        <div class="volume-control">
-            <span>Volume</span>
-            <input type="range" id="volume" min="0" max="1" step="0.01" value="0.7">
-        </div>
+        <a id="playBtn" href="http://uuan-treves.go-stream.live:8973/stream" target="_blank">
+            Listen Now
+        </a>
     </div>
-
-    <audio id="stream" src="http://uuan-treves.go-stream.live:8973/stream" preload="none"></audio>
-
-    <script>
-        const audio = document.getElementById('stream');
-        const playBtn = document.getElementById('playBtn');
-        const volumeSlider = document.getElementById('volume');
-
-        let isPlaying = false;
-
-        playBtn.addEventListener('click', () => {
-            if (isPlaying) {
-                audio.pause();
-                playBtn.textContent = 'Listen Now';
-            } else {
-                audio.play();
-                playBtn.textContent = 'Pause';
-            }
-            isPlaying = !isPlaying;
-        });
-
-        volumeSlider.addEventListener('input', () => {
-            audio.volume = volumeSlider.value;
-        });
-
-        // Set initial volume
-        audio.volume = 0.7;
-    </script>
 
 </body>
 </html>
